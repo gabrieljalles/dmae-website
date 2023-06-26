@@ -1,0 +1,3 @@
+DATABASE_URL="postgresql://yyyy:xxxxx:5432/xxxx?schema=xxxx"
+
+//npx prisma db push - send structure to db

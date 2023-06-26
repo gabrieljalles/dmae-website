@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//tabela do usuário
+model User {
+  id Int @unique @id
+  name String @unique
+  email String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  followingIds String[]
+  hashedPassword String?
+
+  bio String?
+  profileImage String?
+  coverImage String?
+  
+
+  direction String?
+  management String?
+  supervision String?
+  core String?
+  work String?
+  group String? //servidor - terceiro - estagiario
+
+  monthPointsEarned Int?
+  monthPointsAvailable Int?
+  achievements Achievement[]
+  apps App[]
+
+  role Role @default(USER)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+//tabela de conquistas
+model Achievement {
+  id Int @id @unique @default(autoincrement())
+  title String?
+  description String?
+  image String?
+  createdAt DateTime @default(now())
+  userId Int
+
+  user         User          @relation(fields: [userId], references: [id])
+}
+
+//tabela de aplicativos e permissões
+model App {
+  id Int @id @unique @default(autoincrement())
+  name String @unique
+  description String?
+  url String? //test
+  userId Int
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+
+
