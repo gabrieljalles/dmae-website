@@ -29,7 +29,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         //    router.push(href);
         //}
 
-    },[router, onClick, href, auth]) //currentUser, loginModal]);
+    },[router, onClick, href, auth]); //currentUser, loginModal]);
 
     return (
         <div onClick={handleClick} className="flex flex-row items-center">
@@ -37,12 +37,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                 <Icon size={33} color="white" />
             </div>
             <div className=" relative hidden lg:flex items-center items-row gap-4 p-4 rounded-full hover: bg-slate-300 hover:bg-opacity-10 cursor-pointer">
-                
-
+                <Icon size={33} color="white" />
+                <p className="hidden  lg:block text-white text-xl">
+                    {label}
+                </p>
             </div>
-
         </div>
-
     )
 }
 

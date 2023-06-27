@@ -1,9 +1,9 @@
 import { BsBellFill, BsFillFilePersonFill, BsFillGridFill, BsHouseFill } from 'react-icons/bs';
 import SidebarItem from './SidebarItem';
 import { IconBaseProps } from 'react-icons/lib/esm/iconBase';
+import useCurrentUser from '@/hooks/useCurrentUser';
 
 const Sidebar = () => {
-
     //const {data: currentUser} = useCurrentUser();
     const items = [
         {
